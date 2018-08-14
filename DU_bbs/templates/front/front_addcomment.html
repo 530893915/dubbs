@@ -1,0 +1,28 @@
+{% extends  'front/front_base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static('front/css/front_addcomment.css') }}">
+    <script src="{{ url_for('static',filename='front/js/front_addcomment.js') }}"></script>
+{% endblock %}
+
+{% block container %}
+    <div class="container-inner">
+        <div class="post-title">
+            <a href="{{ url_for('post.post_detail',post_id=post.id) }}">{{ post.title }}</a>
+            {% if origin_comment %}
+                <div class="origin-comment-group" data-comment-id="{{ origin_comment.id }}">
+                    回复{{ origin_comment.author.username }}
+                    <p>{{ origin_comment.content|safe }}</p>
+                </div>
+            {% endif %}
+        </div>
+        {% include 'common/common_editor.html' %}
+        <div class="bottom-group">
+            <button class="btn btn-warning" data-post-id="{{ post.id }}" id="submit-btn">提交评论</button>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends  'front/front_base.html' %}
+
+{% block title %}
+    发表新帖子
+{% endblock %}
+
+{% block head %}
+    <script src="{{ static('common/xtparam.js') }}"></script>
+{#    <link rel="stylesheet" href="{{ static('common/editor/css/wangEditor.min.css') }}">#}
+    <link rel="stylesheet" href="{{ static('front/css/front_addpost.css') }}">
+    <script src="{{ static('front/js/front_addpost.js') }}"></script>
+    <script src="{{ static('front/js/front_captcha.js') }}"></script>
+{% endblock %}
+
+{% block container %}
+    <form action="" method="post">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">标题</span>
+                <input type="text" name="title" class="form-control" placeholder="请输入标题(字数在3-100之间)">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">板块</span>
+                <select class="form-control board-select">
+                    {% for board in boards %}
+                        <option value="{{ board.id }}">{{ board.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+{#        <div class="form-group">#}
+{#            <textarea id="editor"></textarea>#}
+{#        </div>#}
+{#        <script src="{{ static(charset='utf-8','common/editor/js/wangEditor.min.js') }}"></script>#}
+
+
+        {% include 'common/common_editor.html' %}
+        <div class="form-group">
+            <div class="input-group captcha-group">
+                <input type="text" name="graph_captcha" class="form-control">
+                <span class="input-group-addon " id="graph-captcha-btn">
+                    <img src="{{ url_for('account.graph_captcha') }}" alt="" >
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-danger" id="submit">发布帖子</button>
+        </div>
+    </form>
+{% endblock %}

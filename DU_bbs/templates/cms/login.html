@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>CMS登录</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static',filename='cms/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='cms/css/signin.css') }}" rel="stylesheet">
+    <script src="../../assets/js/ie8-responsive-file-warning.js"></script>
+    <script src="{{ url_for('static',filename='cms/js/ie-emulation-modes-warning.js') }}"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-signin" method="post" action="">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <h2 class="form-signin-heading cms-login-h2">请登录</h2>
+          <p>
+        <label for="inputEmail" class="sr-only">邮箱</label>
+        <input type="email" id="inputEmail" class="form-control" name="email" placeholder="邮箱" required autofocus>
+          </p>
+          <p>
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input type="password" id="inputPassword" class="form-control" name="password" placeholder="密码" required>
+          </p>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me" name="remember"> 记住我
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+          {% if message %}
+            <p class="text-danger">{{ message }}</p>
+          {% endif %}
+      </form>
+    </div>
+  </body>
+</html>

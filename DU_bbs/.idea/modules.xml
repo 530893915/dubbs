@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/DU_bbs.iml" filepath="$PROJECT_DIR$/.idea/DU_bbs.iml" />
+      <module fileurl="file://E:\作业\flask\helloword\.idea\helloword.iml" filepath="E:\作业\flask\helloword\.idea\helloword.iml" />
+      <module fileurl="file://E:\My_Code\flask\helloworld\.idea\helloworld.iml" filepath="E:\My_Code\flask\helloworld\.idea\helloworld.iml" />
+    </modules>
+  </component>
+</project>

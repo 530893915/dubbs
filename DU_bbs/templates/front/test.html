@@ -1,0 +1,26 @@
+{% from 'common/common_macros.html' import static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include  'common/common_head.html' %}
+    <script src="https://cdn.staticfile.org/Plupload/2.1.1/moxie.js"></script>
+	<script src="https://cdn.staticfile.org/Plupload/2.1.1/plupload.dev.js"></script>
+	<script src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.14-beta/qiniu.js"></script>
+    <script src="{{ url_for('static',filename='common/xtqiniu.js') }}"></script>
+
+     <script>
+        $(function () {
+            xtqiniu.setUp({
+                'browse_btn': 'upload-btn'
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <button class="btn btn-primary" id="upload">上传测试</button>
+
+</body>
+</html>
