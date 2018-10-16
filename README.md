@@ -1,3 +1,3 @@
 # dubbs
 dudu论坛
-dudubbs.top
+http://dudubbs.top
